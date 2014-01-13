@@ -1,14 +1,14 @@
 ---
 applications:
-- name: rubylab2
+- name: rubylab
   memory: 128M
   instances: 2
-  host: rubylab2
+  host: rubylab-${random-word}
   domain: cfapps.io
   path: .
   command: "bundle exec rake --trace cf:on_first_instance db:migrate && bundle exec rackup -p $PORT"
   services:
-    elephantsql-rubylab2:
+    elephantsql-rubylab:
       label: elephantsql
       provider: elephantsql
       version: n/a
